@@ -18,42 +18,45 @@ Last Node LTS must be installed
     `npm list -g @angular/cli --depth=0`
     `ng -v`
 
-### Preferrablly, install [yarn](https://yarnpkg.com/lang/en/docs/install/#alternatives-tab).
+### Install [yarn](https://yarnpkg.com/lang/en/docs/install/#alternatives-tab).
 
 `npm i -g yarn`
 
-# Build and Run
+## Build and Deployment
 
 1. `ng serve` to start the a webpack server to run the application on port 4200
 
-    Go to http://localhost:4200 to verify that the application is running
+    Go to http://localhost:4300 to verify that the application is running
 
     To change the default port, open `.angular-cli.json`, change the value on default.serve.port
-1. `ng serve --prod` to run in production mode.
-1. `ng build` build the application, build assets are `dist` directory.
-
-## Build and Deployment
+1. Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build, like so: `ng serve --prod` to run in production mode.
 1. `ng lint` to check styles
 
 
+## Code scaffolding
 
-## Test
+Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|module`.
 
-### Unit test
+
+## Running Tests
+
+### Unit tests
   
   Set up via Karma, Jasmin
 1. `ng test` by default to watch file changes
 
-### End-to-end test
-Set up with Protractor
-1. `ng e2e` build and launch browser, serve the app
+### End-to-end tests
+    Set up with Protractor
+Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+Before running the tests make sure you are serving the app via `ng serve`.
 
 
 ## Getting Help
 
+1. To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
 1. `ng doc component` to look up documentation for features
 1. `ng serve --help` to look up doc for `ng serve` command
 
 ## Regnerate a brand new project with routing and scss options
 
-`ng new project-name --routing --style=scss`
+`ng new my-app --routing --style scss`
