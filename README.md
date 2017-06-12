@@ -37,6 +37,9 @@ Last Node LTS must be installed
 
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|module`.
 
+### Example: Generate a customer component
+
+`ng g c customer -d`
 
 ## Running Tests
 
@@ -56,6 +59,13 @@ Before running the tests make sure you are serving the app via `ng serve`.
 1. To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
 1. `ng doc component` to look up documentation for features
 1. `ng serve --help` to look up doc for `ng serve` command
+
+
+## Change aspects of the application
+
+### Change style dialect
+
+`ng set default.styleExt css`
 
 ## Regnerate a brand new project with routing and scss options
 
