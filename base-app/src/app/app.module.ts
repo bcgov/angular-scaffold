@@ -10,6 +10,7 @@ import { CustomerComponent } from './customer/customer.component';
 import { SearchBoxDirective } from './search-box/search-box.directive';
 import { GeneralDataService } from "app/general-data.service";
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { AdminModule } from "app/admin/admin.module";
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     FormsModule,
     HttpModule,
     AppRoutingModule,
-    NgbModule
+    NgbModule,
+    AdminModule
   ],
   providers: [GeneralDataService],
   bootstrap: [AppComponent]
