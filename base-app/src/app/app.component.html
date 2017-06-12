@@ -22,7 +22,20 @@
     </div>
   </main>
 
-<div id="pad"></div>
+  <div id="pad">
+    <nav>
+        <ul class="nav navbar-nav">
+          <li><a href="" [routerLink]="['/dashboard']">Dashboard</a></li>
+          <li><a href="" [routerLink]="['/customer']">Customer</a></li>
+        </ul>
+    </nav>
+
+
+    <div class="container">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+
 </div>
 
 <footer>

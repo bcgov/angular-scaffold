@@ -8,12 +8,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CustomerComponent } from './customer/customer.component';
 import { SearchBoxDirective } from './search-box/search-box.directive';
+import { GeneralDataService } from "app/general-data.service";
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CustomerComponent,
-    SearchBoxDirective
+    SearchBoxDirective,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -22,7 +25,7 @@ import { SearchBoxDirective } from './search-box/search-box.directive';
     AppRoutingModule,
     NgbModule
   ],
-  providers: [],
+  providers: [GeneralDataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

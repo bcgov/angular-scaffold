@@ -1,5 +1,7 @@
 # angular-scaffold
-Baseline application to help you start a new project fast
+Baseline application to help you start a new project fast.
+
+A starter application with routing, simple components, service, and directives.
 
 # Prerequisites
 
@@ -22,9 +24,10 @@ Last Node LTS must be installed
 
 `npm i -g yarn`
 
-## Build and Deployment
+## Fork, Build and Deployment
 
-1. `ng serve` to start the a webpack server to run the application on port 4200
+1. After installing Node and Yarn, you can fork or straight download a copy of this application to start your own app.
+1. `npm start` to start the a webpack server to run the application on port 4200
 
     Go to http://localhost:4300 to verify that the application is running
 
@@ -40,6 +43,46 @@ Run `ng generate component component-name` to generate a new component. You can 
 ### Example: Generate a customer component
 
 `ng g c customer -d`
+
+### Example: Generate a directive: search-bpx
+`ng g d serarch-box -d`
+
+### Example: Generate a service: general-data
+
+`ng g s general-data -d`
+
+Angular will give out a warning line after this command, `
+WARNING Service is generated but not provided, it must be provided to be used
+`
+After generating a service, we must go to its owning module and add the service to the `providers` array.
+
+### Example: Generate a service & include it in a module automatically
+
+`ng g s general-data2 -m app.module`
+
+### Example: Generate a class, an interface and emum
+
+`ng g cl models/customer`
+
+`ng g i models/person`
+
+`ng g enum models/gender`
+
+### Example: Generate a pipe
+
+`ng g pipe shared/init-caps`
+
+## Generate a module
+
+Create a login directory and generate a login module in that directory
+
+`ng g module login/login.module`
+
+## Add/Generate Routing Features
+
+Generate a module called admin and add routing feature to it.
+
+`ng g module admin --routing`
 
 ## Running Tests
 
