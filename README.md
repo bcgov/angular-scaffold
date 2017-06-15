@@ -46,7 +46,7 @@ Run `ng generate component component-name` to generate a new component. You can 
 `ng g c customer -d`
 
 ### Example: Generate a directive: search-bpx
-`ng g d serarch-box -d`
+`ng g d search-box -d`
 
 ### Example: Generate a service: general-data
 
