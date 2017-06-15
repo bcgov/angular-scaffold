@@ -27,13 +27,14 @@ Latest Node LTS must be installed
 ## Fork, Build and Deployment
 
 1. After installing Node and Yarn, you can fork or straight download a copy of this application to start your own app.
+1. First download all the dependencies with `yarn install`
 1. `npm start` to start the a webpack server to run the application on port 4200
 
     Go to http://localhost:4300 to verify that the application is running
 
     To change the default port, open `.angular-cli.json`, change the value on default.serve.port
-1. Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build, like so: `ng serve --prod` to run in production mode.
-1. `ng lint` to check styles
+1. Run `npm run build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build, like so: `ng serve --prod` to run in production mode.
+1. `npm run lint` to check styles
 
 
 ## Code scaffolding
