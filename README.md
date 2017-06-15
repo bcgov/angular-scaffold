@@ -28,7 +28,7 @@ Latest Node LTS must be installed
 
 1. After installing Node and Yarn, you can fork or straight download a copy of this application to start your own app.
 1. First download all the dependencies with `yarn install`
-1. `npm start` to start the a webpack server to run the application on port 4200
+1. `npm start` to start the a webpack server to run the application on port 4300
 
     Go to http://localhost:4300 to verify that the application is running
 
