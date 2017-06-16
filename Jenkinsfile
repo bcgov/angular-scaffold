@@ -9,11 +9,6 @@ pipeline {
                 checkout scm
             }
         }
-        stage ('Build Tools') {
-            steps {
-                sh 'npm install -g @angular/cli'
-            }
-        }
         stage('Install') {
             steps {
 
