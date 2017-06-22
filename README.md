@@ -7,7 +7,7 @@ A starter application with routing, simple components, service, and directives.
 
 ## Node and NPM 
 
-Latest Node LTS must be installed 
+Node 6.x or greater must be installed.
 
 ## Install angular-cli
 
