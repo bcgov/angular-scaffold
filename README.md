@@ -1,7 +1,11 @@
 # angular-scaffold
-Baseline application to help you start a new project fast.
 
-A starter application with routing, simple components, service, and directives.
+This project provides a baseline code base to help you kick start an Angular project that is based on BC Goverment themed Bootstrap styles, footers and headers.
+
+
+This application has a complete development environment set up, including build, test, deploy, routing, simple components, service, and directives as examples and templates.
+
+The goal is for you to start a project fast, enable you to focus on building actual business logics for your project.
 
 # Prerequisites
 
