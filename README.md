@@ -11,7 +11,7 @@ The goal is to help you start a project fast, enable you to focus on building ac
 
 ## Node and NPM 
 
-Latest Node LTS must be installed 
+Node 6.x or greater must be installed.
 
 ## Install angular/cli
 
