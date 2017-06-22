@@ -13,11 +13,13 @@ The goal is to help you start a project fast, enable you to focus on building ac
 
 Latest Node LTS must be installed 
 
-## Install angular-cli
+## Install angular/cli
+
+**Note, use `angular/cli`, do not us `angular/angular-cli`**
 
 `npm i -g @angular/cli`
 
-`ng` is the CLI itself
+`ng` is the CLI itself 
 
     Verify the installation
 
