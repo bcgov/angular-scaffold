@@ -5,7 +5,7 @@ This project provides a baseline code base to help you kick start an Angular pro
 
 This application has a complete development environment set up, including build, test, deploy, routing, simple components, service, and directives as examples and templates.
 
-The goal is for you to start a project fast, enable you to focus on building actual business logics for your project.
+The goal is to help you start a project fast, enable you to focus on building actual business logics for your project.
 
 # Prerequisites
 
