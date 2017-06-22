@@ -15,7 +15,7 @@ Node 6.x or greater must be installed.
 
 ## Install angular/cli
 
-**Note, use `angular/cli`, do not us `angular/angular-cli`**
+**Note, use `angular/cli`, do not use `angular/angular-cli`**
 
 `npm i -g @angular/cli`
 
