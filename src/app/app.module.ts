@@ -8,9 +8,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CustomerComponent } from './customer/customer.component';
 import { SearchBoxDirective } from './search-box/search-box.directive';
-import { GeneralDataService } from "app/general-data.service";
+import { GeneralDataService } from 'app/general-data.service';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { AdminModule } from "app/admin/admin.module";
+import { AdminModule } from 'app/admin/admin.module';
 
 @NgModule({
   declarations: [
