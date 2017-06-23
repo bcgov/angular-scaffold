@@ -2,7 +2,7 @@
   "kind": "Template",
   "apiVersion": "v1",
   "metadata": {
-    "name": "nginx",
+    "name": "angular-builder",
     "creationTimestamp": null
   },
   "objects": [
@@ -30,7 +30,7 @@
           "git": {
             "uri": "https://github.com/bcgov/angular-scaffold"
           },
-          "contextDir": "openshift/templates/nginx/"
+          "contextDir": "openshift/templates/angular-builder/"
         },
         "strategy": {
           "type": "Docker",
@@ -63,7 +63,7 @@
       "displayName": "Name",
       "description": "The name assigned to all of the frontend objects defined in this template.",
       "required": true,
-      "value": "nginx"
+      "value": "angular-builder"
     }
   ]
 }
