@@ -25,6 +25,7 @@
       },
       "spec": {
         "runPolicy": "Serial",
+        "completionDeadlineSeconds": 1800,
         "source": {
           "type": "Git",
           "git": {
@@ -44,7 +45,7 @@
             },
             "runtimeArtifacts": [{
               "sourcePath": "/opt/app-root/src/dist",
-              "destinationDir": "html/"
+              "destinationDir": "tmp/src"
             }]
           }
 
@@ -56,8 +57,16 @@
             "name": "${NAME}:latest"
           }
         },
-        "resources": {},
-        "postCommit": {}
+        "resources": {
+          "requests": {
+            "cpu": "100m",
+            "memory": "256Mi"
+          },
+          "limits": {
+            "cpu": "1",
+            "memory": "1Gi"
+          }
+        }
       },
       "status": {
         "lastVersion": 0
