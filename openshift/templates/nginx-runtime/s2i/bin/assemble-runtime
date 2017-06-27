@@ -1,3 +1,2 @@
 #!/bin/bash
 echo no assemble-runtime needed
-ls /usr/libexec/s2i/
