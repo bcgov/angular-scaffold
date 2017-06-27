@@ -1,19 +1,25 @@
 # angular-scaffold
-Baseline application to help you start a new project fast.
 
-A starter application with routing, simple components, service, and directives.
+This project provides a baseline code base to help you kick start an Angular project that is based on BC Goverment themed Bootstrap styles, footers and headers.
+
+
+This application has a complete development environment set up, including build, test, deploy, routing, simple components, service, and directives as examples and templates.
+
+The goal is to help you start a project fast, enable you to focus on building actual business logics for your project.
 
 # Prerequisites
 
 ## Node and NPM 
 
-Last Node LTS must be installed 
+Node 6.x or greater must be installed.
 
-## Install angular-cli
+## Install angular/cli
+
+**Note, use `angular/cli`, do not use `angular/angular-cli`**
 
 `npm i -g @angular/cli`
 
-`ng` is the CLI itself
+`ng` is the CLI itself 
 
     Verify the installation
 
@@ -27,13 +33,14 @@ Last Node LTS must be installed
 ## Fork, Build and Deployment
 
 1. After installing Node and Yarn, you can fork or straight download a copy of this application to start your own app.
-1. `npm start` to start the a webpack server to run the application on port 4200
+1. First download all the dependencies with `yarn install`
+1. `npm start` to start the a webpack server to run the application on port 4300
 
     Go to http://localhost:4300 to verify that the application is running
 
     To change the default port, open `.angular-cli.json`, change the value on default.serve.port
-1. Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build, like so: `ng serve --prod` to run in production mode.
-1. `ng lint` to check styles
+1. Run `npm run build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build, like so: `ng serve --prod` to run in production mode.
+1. `npm run lint` to check styles
 
 
 ## Code scaffolding
@@ -45,7 +52,7 @@ Run `ng generate component component-name` to generate a new component. You can 
 `ng g c customer -d`
 
 ### Example: Generate a directive: search-bpx
-`ng g d serarch-box -d`
+`ng g d search-box -d`
 
 ### Example: Generate a service: general-data
 

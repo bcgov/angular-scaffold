@@ -1,0 +1,58 @@
+worker_processes  auto;
+
+error_log  /var/log/nginx/error.log;
+error_log  syslog:server=logstash:5514,tag=nginx_error,severity=error;
+pid        /var/run/nginx.pid;
+
+
+events {
+    worker_connections  4096;
+}
+
+
+http {
+    include       /etc/nginx/mime.types;
+    default_type  application/octet-stream;
+    server_tokens off;
+
+    # ip filtering
+    %IpFilterRules%
+
+    geo $loggable {
+        default 1;
+        %RealIpFrom% 0;
+    }
+
+    log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
+                      '$status $body_bytes_sent "$http_referer" '
+                      '"$http_user_agent" "$http_x_forwarded_for"';
+
+    access_log  /var/log/nginx/access.log  main if=$loggable;
+    access_log syslog:server=logstash:5514,tag=nginx_access,severity=info main if=$loggable;
+
+    sendfile        on;
+    #tcp_nopush     on;
+
+    keepalive_timeout  65;
+
+    #gzip  on;
+
+    #real_ip module
+    set_real_ip_from %RealIpFrom%;
+    %AdditionalRealIpFromRules%
+    real_ip_recursive on;
+    real_ip_header    X-Forwarded-For;
+
+    #throttle zones
+    limit_req_zone $binary_remote_addr zone=bra1:10m rate=1r/s;
+    limit_req_zone $binary_remote_addr zone=bra3:10m rate=3r/s;
+    limit_req_zone $binary_remote_addr zone=bra5:10m rate=5r/s;
+    limit_req_zone $binary_remote_addr zone=bra25:10m rate=25r/s;
+    limit_req_zone $binary_remote_addr zone=bra100:10m rate=100r/s;
+
+    #default throttle; not inherited if set in nested level
+    limit_req zone=bra5 burst=100;
+
+    client_max_body_size 100m;
+    include /etc/nginx/conf.d/*.conf;
+}

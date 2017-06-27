@@ -1,0 +1,73 @@
+{
+  "kind": "Template",
+  "apiVersion": "v1",
+  "metadata": {
+    "name": "s2i-builder",
+    "creationTimestamp": null
+  },
+  "objects": [
+    {
+      "kind": "ImageStream",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "${NAME}"
+      }
+    },
+    {
+      "kind": "BuildConfig",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "${NAME}",
+        "creationTimestamp": null,
+        "labels": {
+          "app": "${NAME}"
+        }
+      },
+      "spec": {
+        "runPolicy": "Serial",
+        "source": {
+          "type": "Git",
+          "git": {
+            "uri": "https://github.com/bcgov/angular-scaffold"
+          }
+        },
+        "strategy": {
+          "type": "Source",
+          "sourceStrategy": {
+            "from": {
+                "kind": "ImageStreamTag",
+                "name": "angular-builder:latest"
+            }
+          },
+          "runtimeImage": {
+            "from": {
+              "kind": "ImageStreamTag",
+              "namespace": "gcpe-mygovbc-demo",
+              "name": "nginx-runtime:latest"
+            }
+          }
+        },
+        "output": {
+          "to": {
+            "kind": "ImageStreamTag",
+            "name": "${NAME}:latest"
+          }
+        },
+        "resources": {},
+        "postCommit": {}
+      },
+      "status": {
+        "lastVersion": 0
+      }
+    }
+  ],
+  "parameters": [
+    {
+      "name": "NAME",
+      "displayName": "Name",
+      "description": "The name assigned to all of the frontend objects defined in this template.",
+      "required": true,
+      "value": "myappname"
+    }
+  ]
+}
