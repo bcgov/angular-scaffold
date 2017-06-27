@@ -1,2 +1,3 @@
 #!/bin/bash
 echo no assemble needed
+ls /usr/libexec/s2i/
