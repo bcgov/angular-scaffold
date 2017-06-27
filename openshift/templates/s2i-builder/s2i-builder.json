@@ -26,6 +26,11 @@
       "spec": {
         "runPolicy": "Serial",
         "completionDeadlineSeconds": 1800,
+        "triggers": [
+          {
+            "type": "ImageChange"
+          }
+        ],
         "source": {
           "type": "Git",
           "git": {
