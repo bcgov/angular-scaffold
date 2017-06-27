@@ -43,8 +43,8 @@
               "name": "nginx-runtime:latest"
             },
             "runtimeArtifacts": [{
-              "sourcePath": "/tmp/src",
-              "destinationDir": "/tmp/"
+              "sourcePath": "/opt/app-root/src/dist",
+              "destinationDir": "html/"
             }]
           }
 
