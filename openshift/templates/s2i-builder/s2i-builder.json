@@ -37,15 +37,18 @@
             "from": {
                 "kind": "ImageStreamTag",
                 "name": "angular-builder:latest"
-            }
-          },
-          "runtimeImage": {
-            "from": {
+            },
+            "runtimeImage": {
               "kind": "ImageStreamTag",
-              "namespace": "gcpe-mygovbc-demo",
               "name": "nginx-runtime:latest"
-            }
+            },
+            "runtimeArtifacts": [{
+              "sourcePath": "/tmp/src",
+              "destinationDir": "/tmp/"
+            }]
           }
+
+
         },
         "output": {
           "to": {
