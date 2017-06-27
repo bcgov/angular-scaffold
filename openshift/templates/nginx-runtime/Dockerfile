@@ -1,4 +1,4 @@
-FROM nginx:mainline
+FROM nginx:mainline-alpine
 COPY ./s2i/bin/ /tmp/s2i/bin
 COPY nginx.conf.template /tmp/
 COPY default.conf /etc/nginx/conf.d/
