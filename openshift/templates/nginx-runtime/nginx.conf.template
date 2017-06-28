@@ -1,7 +1,6 @@
 worker_processes  auto;
 
 error_log  /var/log/nginx/error.log;
-error_log  syslog:server=logstash:5514,tag=nginx_error,severity=error;
 pid        /var/run/nginx.pid;
 
 
