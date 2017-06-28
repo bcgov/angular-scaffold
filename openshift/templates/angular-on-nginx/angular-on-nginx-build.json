@@ -17,7 +17,7 @@
       "kind": "BuildConfig",
       "apiVersion": "v1",
       "metadata": {
-        "name": "${NAME}",
+        "name": "${NAME}-build",
         "creationTimestamp": null,
         "labels": {
           "app": "${NAME}"
