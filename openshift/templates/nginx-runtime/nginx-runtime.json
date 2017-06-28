@@ -33,15 +33,7 @@
           "contextDir": "openshift/templates/nginx-runtime/"
         },
         "strategy": {
-          "type": "Docker",
-          "dockerStrategy": {
-            "env": [
-              {
-                "name": "EXAMPLE",
-                "value": "sample-app"
-              }
-            ]
-          }
+          "type": "Docker"
         },
         "output": {
           "to": {
