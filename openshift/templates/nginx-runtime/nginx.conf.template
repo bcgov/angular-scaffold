@@ -27,7 +27,6 @@ http {
                       '"$http_user_agent" "$http_x_forwarded_for"';
 
     access_log  /var/log/nginx/access.log  main if=$loggable;
-    access_log syslog:server=logstash:5514,tag=nginx_access,severity=info main if=$loggable;
 
     sendfile        on;
     #tcp_nopush     on;
