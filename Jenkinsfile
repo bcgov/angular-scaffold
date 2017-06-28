@@ -1,6 +1,6 @@
 node {
-  def DEPLOYMENT_CONFIG = "angular-scaffold"
-  def IMAGESTREAM_NAME = "angular-scaffold"
+  def DEPLOYMENT_CONFIG = 'angular-scaffold'
+  def IMAGESTREAM_NAME = 'angular-scaffold'
 
   stage('build') {
          echo "Building..."
