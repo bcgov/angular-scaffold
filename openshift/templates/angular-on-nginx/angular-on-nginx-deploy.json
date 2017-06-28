@@ -80,9 +80,13 @@
                   }
                 ],
                 "resources": {
+                  "requests": {
+                    "cpu": "10m",
+                    "memory": "100Mi"
+                  },
                   "limits": {
                     "cpu": "500m",
-                    "memory": "200Mi"
+                    "memory": "1Gi"
                   }
                 },
                 "livenessProbe": {
@@ -242,7 +246,7 @@
       "description": "The exposed hostname that will route to the service, e.g., myappname.pathfinder.gov.bc.ca, if left blank a value will be defaulted.",
       "displayName": "Application Hostname",
       "name": "APPLICATION_DOMAIN",
-      "value": "angular-scaffold-demo.pathfinder.gov.bc.ca.ca"
+      "value": "angular-scaffold-demo.pathfinder.gov.bc.ca"
     }
   ]
 }
