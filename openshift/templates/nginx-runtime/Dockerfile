@@ -1,4 +1,4 @@
-FROM nginx:mainline
+FROM nginx:mainline-alpine
 COPY ./s2i/bin/ /usr/libexec/s2i/
 LABEL io.openshift.s2i.scripts-url=image:///usr/libexec/s2i
 COPY nginx.conf.template /tmp/
