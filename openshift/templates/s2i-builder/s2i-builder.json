@@ -58,7 +58,7 @@
               "name": "nginx-runtime:latest"
             },
             "runtimeArtifacts": [{
-              "sourcePath": "/opt/app-root/src/dist",
+              "sourcePath": "/opt/app-root/src/dist/",
               "destinationDir": "tmp/src"
             }]
           }
