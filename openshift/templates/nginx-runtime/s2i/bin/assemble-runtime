@@ -1,2 +1,3 @@
 #!/bin/bash
 echo no assemble-runtime needed
+ls -aZ /tmp/s2i/bin
