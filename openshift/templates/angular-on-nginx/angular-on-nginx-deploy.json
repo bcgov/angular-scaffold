@@ -136,7 +136,7 @@
               ],
               "from": {
                 "kind": "ImageStreamTag",
-                "name": "${NAME}:latest"
+                "name": "${NAME}:${TAG_NAME}"
               }
             }
           }
@@ -247,6 +247,12 @@
       "displayName": "Application Hostname",
       "name": "APPLICATION_DOMAIN",
       "value": "angular-scaffold-demo.pathfinder.gov.bc.ca"
+    },
+    {
+      "description": "The TAG name for this environment, e.g., DEV, TEST, PROD",
+      "displayName": "Env TAG name",
+      "name": "TAG_NAME",
+      "value": "DEV"
     }
   ]
 }

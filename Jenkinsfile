@@ -1,6 +1,10 @@
 node {
-  def BUILD_CONFIG = 'angular-scaffold-build'
-  def IMAGESTREAM_NAME = 'angular-scaffold'
+  // Edit your app's name below
+  def APP_NAME = 'angular-scaffold'
+
+  // You shouldn't have to edit these if you're following the conventions
+  def BUILD_CONFIG = APP_NAME + '-build'
+  def IMAGESTREAM_NAME = APP_NAME
 
   stage('build') {
          echo "Building: " + BUILD_CONFIG
