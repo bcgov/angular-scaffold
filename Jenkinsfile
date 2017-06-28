@@ -1,10 +1,12 @@
 node {
-  def DEPLOYMENT_CONFIG = 'angular-scaffold'
-  def IMAGESTREAM_NAME = 'angular-scaffold'
+  environment {
+    DEPLOYMENT_CONFIG = 'angular-scaffold'
+    IMAGESTREAM_NAME = 'angular-scaffold'
+  }
 
   stage('build') {
          echo "Building: ${DEPLOYMENT_CONFIG}"
-         openshiftBuild bldCfg: '${DEPLOYMENT_CONFIG}', showBuildLogs: 'true'
+         openshiftBuild bldCfg: '${env.DEPLOYMENT_CONFIG}', showBuildLogs: 'true'
          openshiftTag destStream: '${IMAGESTREAM_NAME}', verbose: 'true', destTag: '$BUILD_ID', srcStream: '${IMAGESTREAM_NAME}', srcTag: 'latest'
          openshiftTag destStream: '${IMAGESTREAM_NAME}', verbose: 'true', destTag: 'dev', srcStream: '${IMAGESTREAM_NAME}', srcTag: 'latest'
   }
