@@ -1,4 +1,7 @@
 node {
+  def DEPLOYMENT_CONFIG = "angular-scaffold"
+  def IMAGESTREAM_NAME = "angular-scaffold"
+
   stage('build') {
          echo "Building..."
          openshiftBuild bldCfg: '${DEPLOYMENT_CONFIG}', showBuildLogs: 'true'
