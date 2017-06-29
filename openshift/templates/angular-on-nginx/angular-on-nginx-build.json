@@ -69,9 +69,6 @@
             "name": "${NAME}:latest"
           }
         },
-        "postCommit": {
-          "script": "npm test"
-        },
         "resources": {
           "requests": {
             "cpu": "100m",
@@ -79,7 +76,7 @@
           },
           "limits": {
             "cpu": "1",
-            "memory": "2Gi"
+            "memory": "4Gi"
           }
         }
       },
