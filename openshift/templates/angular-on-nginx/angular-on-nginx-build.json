@@ -29,15 +29,6 @@
         "triggers": [
           {
             "type": "ImageChange"
-          },
-          {
-            "type": "ImageChange",
-            "imageChange": {
-              "from": {
-                "kind": "ImageStreamTag",
-                "name": "nginx-runtime:latest"
-              }
-            }
           }
         ],
         "source": {
