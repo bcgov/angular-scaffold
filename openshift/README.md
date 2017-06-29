@@ -79,7 +79,7 @@ What happens in OpenShift:
 1. Executes Dockerfile build strategy
 1. Pushes new `nginx-runtime` image into your project's Image Streams
 
-## Setup Angular-on-Nginx
+## Setup Angular-on-Nginx Builder
 
 This is the s2i builder image to glue the `angular-builder` output with the `nginx-runtime` image.  The result is a
 new image based on `nginx-runtime` but with the output of `angular-builder`.
@@ -95,6 +95,28 @@ What happens in OpenShift:
 1. Trigger's `angular-builder` to build with your source code
 1. Copies output, i.e., `/opt/app-root/src/dist/` to `nginx-runtime` directory `tmp/app`
 1. Create to image, `<your app name>-build` to Image Stream
+
+## Setup "Your App" Deployment
+
+Once we've got an image out of the `angular-on-nginx` builder, e.g., `<your app name>`, we
+need to setup the deployment.  We've provide a deployment template that is based on real load testing:
+1. Tuned CPU/Memory for the ngnix runtime on containers
+1. Auto-scaling for high work loads
+1. Tweaked readiness and liveness probes settings
+
+The deployment template will create in OpenShift:
+1. Deployment config with default nginx runtime env vars
+1. Service config
+1. Route config
+
+To add this image to your OpenShift Project,
+1. Open OpenShift web console->Add to Project->Import YAML/JSON
+1. Paste `angular-on-nginx-deploy` into form -> Create
+1. Change the `Name` to the name of your application
+1. Change the `Env TAG name` to the name of your application
+1. This should auto trigger a build
+
+Repeat these steps for each environment you have changing the `Env TAG name`.
 
 ## Jenkins vs OpenShift Triggers
 
@@ -113,5 +135,10 @@ Note: we've already provided the default `Jenkinsfile` tailored for this app.
 
 ## Jenkins Additional Setup
 
-Jenkins out-of-the-box needs some additional 
+Jenkins out-of-the-box needs some additional setup.  
+
+1. First off, you'll need the admin password.  Go the Deployments -> `jenkins-pipeline-svc` -> Environment -> `JENKINS_PASSWORD`
+1. Navigate to jenkins web site by looking in your Routes in made for Jenkins
+1. Upgrade all the plugins in Jenkins
+1. Add the `GitHub` plugin
 
