@@ -11,10 +11,11 @@ node {
   def IMAGESTREAM_NAME = APP_NAME
 
   stage('build nginx runtime') {
+    echo "Building: " + NGINX_BUILD_CONFIG
     openshiftBuild bldCfg: NGINX_BUILD_CONFIG, showBuildLogs: 'true'
   }
 
-  stage('build app') {
+  stage('build ' + BUILD_CONFIG) {
     echo "Building: " + BUILD_CONFIG
     openshiftBuild bldCfg: BUILD_CONFIG, showBuildLogs: 'true'
     openshiftTag destStream: IMAGESTREAM_NAME, verbose: 'true', destTag: '$BUILD_ID', srcStream: IMAGESTREAM_NAME, srcTag: 'latest'
