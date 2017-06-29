@@ -7,6 +7,8 @@ This application has a complete development environment set up, including build,
 
 The goal is to help you start a project fast, enable you to focus on building actual business logics for your project.
 
+[Check out a running demo of just scaffold out of the box](https://angular-scaffold-demo.pathfinder.gov.bc.ca)
+
 # Development Prerequisites
 
 ## Node and NPM 
