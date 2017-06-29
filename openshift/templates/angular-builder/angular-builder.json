@@ -28,20 +28,12 @@
         "source": {
           "type": "Git",
           "git": {
-            "uri": "https://github.com/bcgov/angular-scaffold"
+            "uri": "${GIT_REPO_URL}"
           },
           "contextDir": "openshift/templates/angular-builder/"
         },
         "strategy": {
-          "type": "Docker",
-          "dockerStrategy": {
-            "env": [
-              {
-                "name": "EXAMPLE",
-                "value": "sample-app"
-              }
-            ]
-          }
+          "type": "Docker"
         },
         "output": {
           "to": {
@@ -61,9 +53,16 @@
     {
       "name": "NAME",
       "displayName": "Name",
-      "description": "The name assigned to all of the frontend objects defined in this template.",
+      "description": "The name assigned to all of the frontend objects defined in this template.  You should keep this as default unless your know what your doing.",
       "required": true,
       "value": "angular-builder"
+    },
+    {
+      "name": "GIT_REPO_URL",
+      "displayName": "Git Repo URL",
+      "description": "The URL to your GIT repo, don't use the this default unless your just experimenting.",
+      "required": true,
+      "value": "https://github.com/bcgov/angular-scaffold"
     }
   ]
 }

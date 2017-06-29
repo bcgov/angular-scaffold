@@ -1,7 +1,6 @@
 worker_processes  auto;
 
 error_log  /var/log/nginx/error.log;
-error_log  syslog:server=logstash:5514,tag=nginx_error,severity=error;
 pid        /var/run/nginx.pid;
 
 
@@ -23,12 +22,12 @@ http {
         %RealIpFrom% 0;
     }
 
+    # Use a w3c standard log format
     log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
                       '$status $body_bytes_sent "$http_referer" '
                       '"$http_user_agent" "$http_x_forwarded_for"';
 
     access_log  /var/log/nginx/access.log  main if=$loggable;
-    access_log syslog:server=logstash:5514,tag=nginx_access,severity=info main if=$loggable;
 
     sendfile        on;
     #tcp_nopush     on;
@@ -54,5 +53,6 @@ http {
     limit_req zone=bra5 burst=100;
 
     client_max_body_size 100m;
+
     include /etc/nginx/conf.d/*.conf;
 }

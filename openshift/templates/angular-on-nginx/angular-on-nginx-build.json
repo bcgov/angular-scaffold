@@ -2,7 +2,7 @@
   "kind": "Template",
   "apiVersion": "v1",
   "metadata": {
-    "name": "s2i-builder",
+    "name": "angular-on-nginx",
     "creationTimestamp": null
   },
   "objects": [
@@ -17,7 +17,7 @@
       "kind": "BuildConfig",
       "apiVersion": "v1",
       "metadata": {
-        "name": "${NAME}",
+        "name": "${NAME}-build",
         "creationTimestamp": null,
         "labels": {
           "app": "${NAME}"
@@ -43,7 +43,7 @@
         "source": {
           "type": "Git",
           "git": {
-            "uri": "https://github.com/bcgov/angular-scaffold"
+            "uri": "${GIT_SOURCE_URL}"
           }
         },
         "strategy": {
@@ -59,7 +59,7 @@
             },
             "runtimeArtifacts": [{
               "sourcePath": "/opt/app-root/src/dist/",
-              "destinationDir": "tmp/src"
+              "destinationDir": "tmp/app"
             }]
           }
 
@@ -91,9 +91,16 @@
     {
       "name": "NAME",
       "displayName": "Name",
-      "description": "The name assigned to all of the frontend objects defined in this template.",
+      "description": "The name assigned to all of the objects defined in this template.",
       "required": true,
-      "value": "myappname"
+      "value": "angular-scaffold"
+    },
+    {
+      "name": "GIT_SOURCE_URL",
+      "displayName": "GIT Source Repo URL",
+      "description": "A GIT URL to your source code.",
+      "required": true,
+      "value": "https://github.com/bcgov/angular-scaffold"
     }
   ]
 }
