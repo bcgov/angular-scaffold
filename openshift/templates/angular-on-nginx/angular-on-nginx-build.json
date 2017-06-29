@@ -62,14 +62,15 @@
               "destinationDir": "tmp/app"
             }]
           }
-
-
         },
         "output": {
           "to": {
             "kind": "ImageStreamTag",
             "name": "${NAME}:latest"
           }
+        },
+        "postCommit": {
+          "script": "npm test"
         },
         "resources": {
           "requests": {
