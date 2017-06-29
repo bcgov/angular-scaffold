@@ -136,6 +136,7 @@
               ],
               "from": {
                 "kind": "ImageStreamTag",
+                "namespace": "${IMAGE_NAMESPACE}",
                 "name": "${NAME}:${TAG_NAME}"
               }
             }
@@ -218,11 +219,18 @@
   ],
   "parameters": [
     {
-      "description": "The name assigned to all of the openshift objects defined in this template. It is also the name of runtime image.",
+      "description": "The name assigned to all of the openshift objects defined in this template. It is also the name of runtime image you want.",
       "displayName": "Name",
       "name": "NAME",
       "required": true,
       "value": "angular-scaffold"
+    },
+    {
+      "description": "The namespace where to get the above image name",
+      "displayName": "Image Namespace",
+      "name": "IMAGE_NAMESPACE",
+      "required": true,
+      "value": "gcpe-mygovbc-demo"
     },
     {
       "description": "OpenShift cluster private IP range in CIDR notation, used by Nginx ngx_http_realip_module.",
