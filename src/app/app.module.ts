@@ -11,14 +11,15 @@ import { SearchBoxDirective } from './search-box/search-box.directive';
 import { GeneralDataService } from 'app/general-data.service';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AdminModule } from 'app/admin/admin.module';
-import {BreadcrumbModule} from 'angular2-crumbs';
+import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CustomerComponent,
     SearchBoxDirective,
-    DashboardComponent
+    DashboardComponent,
+    BreadcrumbComponent
   ],
   imports: [
     BrowserModule,
@@ -27,7 +28,6 @@ import {BreadcrumbModule} from 'angular2-crumbs';
     AppRoutingModule,
     NgbModule,
     AdminModule,
-    BreadcrumbModule.forRoot()
   ],
   providers: [GeneralDataService],
   bootstrap: [AppComponent]
