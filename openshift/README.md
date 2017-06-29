@@ -86,7 +86,7 @@ new image based on `nginx-runtime` but with the output of `angular-builder`.
 
 To add this image to your OpenShift Project,
 1. Open OpenShift web console->Add to Project->Import YAML/JSON
-1. Paste `angular-on-nginx-build` into form -> Create
+1. Paste `angular-on-nginx-build.json` into form -> Create
 1. Change the `Name` to the name of your application
 1. Change the `Git Source Repo URL` to yours -> Create
 1. This should auto trigger a build
