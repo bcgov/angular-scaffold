@@ -8,7 +8,7 @@ import 'rxjs/add/operator/filter';
   styleUrls: ['./breadcrumb.component.scss']
 })
 export class BreadcrumbComponent implements OnInit {
-  private breadcrumbs: Array<{}> = [];
+  public breadcrumbs: Array<{}> = [];
 
   constructor (
     private router:Router,
