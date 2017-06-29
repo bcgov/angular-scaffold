@@ -14,7 +14,7 @@ Enhancements to base Nginx image are:
 
 - security response HTTP headers
 - throttling to reduce DDoS
-- W3C standard logging formatting
+- W3C standard log formatting
 - performance tuning
 - uses X-Forwarded-For for client IP for better logging and access control.
 - gzip enabled for better client performance
@@ -114,6 +114,7 @@ To add this image to your OpenShift Project,
 1. Paste `angular-on-nginx-deploy` into form -> Create
 1. Change the `Name` to the name of your application
 1. Change the `Env TAG name` to the name of your application
+1. Change the `APPLICATION_DOMAIN` to the domain name you would like
 1. This should auto trigger a build
 
 Repeat these steps for each environment you have changing the `Env TAG name`.
