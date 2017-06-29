@@ -7,7 +7,7 @@ This application has a complete development environment set up, including build,
 
 The goal is to help you start a project fast, enable you to focus on building actual business logics for your project.
 
-# Prerequisites
+# Development Prerequisites
 
 ## Node and NPM 
 
@@ -120,3 +120,8 @@ Before running the tests make sure you are serving the app via `ng serve`.
 ## Regnerate a brand new project with routing and scss options
 
 `ng new my-app --routing --style scss`
+
+# Build and Deployment
+
+For dev, test, and production builds on OpenShift/Jenkins see `openshift/README.md` for detailed instructions
+on how to setup in an OpenShift environment using nginx.
