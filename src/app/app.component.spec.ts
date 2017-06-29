@@ -4,12 +4,14 @@ import {
 } from '@angular/router/testing';
 
 import { AppComponent } from './app.component';
+import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        AppComponent
+        AppComponent,
+        BreadcrumbComponent
       ],
       imports: [ RouterTestingModule ]
     }).compileComponents();
