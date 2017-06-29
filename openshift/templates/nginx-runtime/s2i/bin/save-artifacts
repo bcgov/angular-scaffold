@@ -1,9 +1,0 @@
-#!/bin/bash
-echo starting save artifacts - THIS APPEARS TO BE IGNORED!
-
-pushd ${HOME}
-if [ -d node_modules ]; then
-    # all node_modules contents to tar stream
-    tar cf - node_modules
-fi
-popd
