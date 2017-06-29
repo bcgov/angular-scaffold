@@ -10,11 +10,18 @@ const routes: Routes = [
   },
   {
     path: 'dashboard',
-    component: DashboardComponent
+    component: DashboardComponent,
+    data: {
+      breadcrumb: 'Dashboard'
+    }
   },
   {
     path: 'customer',
-    component: CustomerComponent
+    component: CustomerComponent,
+    data: {
+      breadcrumb: 'Customer'
+    }
+    
   }
 ];
 

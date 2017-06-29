@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import 'angular2-crumbs/style.css';
 
 @Component({
   selector: 'app-root',
