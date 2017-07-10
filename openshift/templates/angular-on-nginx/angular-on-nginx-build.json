@@ -24,7 +24,7 @@
         }
       },
       "spec": {
-        "runPolicy": "Serial",
+        "runPolicy": "Parallel",
         "completionDeadlineSeconds": 1800,
         "triggers": [
           {
