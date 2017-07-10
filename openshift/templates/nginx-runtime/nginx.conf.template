@@ -52,7 +52,7 @@ http {
     limit_req zone=bra5 burst=100;
 
     # HTTP Basic rules
-    auth_basic_user_file /tmp/.htpasswd
+    auth_basic_user_file /tmp/.htpasswd;
 
     server {
         listen       8080;
