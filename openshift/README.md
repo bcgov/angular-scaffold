@@ -34,7 +34,7 @@ OpenShift is responsible for:
 - Deployments
 
 Jenkins is responsible for:
-- Listing for pushes from GitHub SCM, i.e., GitHub hook -> Jenkins
+- Listening for pushes from GitHub SCM, i.e., GitHub hook -> Jenkins
 - Triggers the Build/Deploy Pipeline
 - Executing the `Jenkinsfile`
   - SCM checkout
