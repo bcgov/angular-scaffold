@@ -1,6 +1,6 @@
 #!/bin/bash
-echo run script starting...
-sed "s~%RealIpFrom%~${RealIpFrom:-172.51.0.0/16}~g; s~%IpFilterRules%~${IpFilterRules}~g; s~%AdditionalRealIpFromRules%~${AdditionalRealIpFromRules}~g" /tmp/nginx.conf.template > /etc/nginx/nginx.conf
+
+sed "s~%RealIpFrom%~${RealIpFrom:-172.51.0.0/16}~g; s~%IpFilterRules%~${IpFilterRules}~g; s~%AdditionalRealIpFromRules%~${AdditionalRealIpFromRules}~g; s~%HTTP_BASIC%~${HTTP_BASIC}~g" /tmp/nginx.conf.template > /etc/nginx/nginx.conf
 
 if [ -n "$HTTP_BASIC_USERNAME" ] && [ -n "$HTTP_BASIC_PASSWORD" ]; then
     echo "---> Generating .htpasswd file"

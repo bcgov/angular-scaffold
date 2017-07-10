@@ -3,11 +3,9 @@ worker_processes  auto;
 error_log  /var/log/nginx/error.log;
 pid        /var/run/nginx.pid;
 
-
 events {
     worker_connections  4096;
 }
-
 
 http {
     include       /etc/nginx/mime.types;
@@ -17,6 +15,7 @@ http {
     # ip filtering
     %IpFilterRules%
 
+    # logging rules
     geo $loggable {
         default 1;
         %RealIpFrom% 0;
@@ -52,7 +51,53 @@ http {
     #default throttle; not inherited if set in nested level
     limit_req zone=bra5 burst=100;
 
-    client_max_body_size 100m;
+    # HTTP Basic rules
+    auth_basic_user_file /tmp/.htpasswd
 
-    include /etc/nginx/conf.d/*.conf;
+    server {
+        listen       8080;
+        server_name  localhost;
+
+        # add in most common security headers
+        add_header Content-Security-Policy "default-src * data: blob: filesystem: 'unsafe-inline' 'unsafe-eval'";
+        add_header Strict-Transport-Security "max-age=86400; includeSubDomains";
+        add_header X-Content-Type-Options "nosniff";
+        add_header X-XSS-Protection 1;
+        add_header X-Frame-Options DENY;
+
+        # serve our angular app here
+        location / {
+            root   /tmp/app/dist;
+            index  index.html index.htm;
+            try_files $uri /index.html;
+            gzip            on;
+            gzip_min_length 1000;
+            gzip_types      *;
+
+            # Deploy-time configurable
+            ${HTTP_BASIC}
+        }
+
+        # redirect server error pages to the static page /50x.html
+        error_page   500 502 503 504  /50x.html;
+        location = /50x.html {
+            root   /usr/share/nginx/html;
+        }
+
+        # For status of ngnix service
+        location /nginx_status {
+            # Enable Nginx stats
+            stub_status on;
+
+            # Only allow access from localhost
+            allow 127.0.0.1;
+
+            # Other request should be denied
+            deny all;
+
+            # No need to log this request, its just noise
+            access_log off;
+        }
+
+    }
 }
