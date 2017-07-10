@@ -288,7 +288,7 @@
     },
     {
       "description": "For very simple HTTP Basic authentication, the password of the ONE user",
-      "displayName": "HTTP Basic Username",
+      "displayName": "HTTP Basic Password",
       "name": "HTTP_PASSWORD",
       "value": ""
     }
