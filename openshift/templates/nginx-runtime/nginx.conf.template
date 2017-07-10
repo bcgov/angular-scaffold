@@ -84,13 +84,13 @@ http {
             root   /usr/share/nginx/html;
         }
 
-        # For status of ngnix service
+        # For status of ngnix service, OpenShift is configured to call this
         location /nginx_status {
             # Enable Nginx stats
             stub_status on;
 
             # Only allow access from localhost
-            allow 127.0.0.1;
+            allow 172.51.0.0/16;
 
             # Other request should be denied
             deny all;

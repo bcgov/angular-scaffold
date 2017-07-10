@@ -91,7 +91,7 @@
                 },
                 "livenessProbe": {
                   "httpGet": {
-                    "path": "/",
+                    "path": "/nginx_status",
                     "port": 8080,
                     "scheme": "HTTP"
                   },
@@ -103,7 +103,7 @@
                 },
                 "readinessProbe": {
                   "httpGet": {
-                    "path": "/",
+                    "path": "/nginx_status",
                     "port": 8080,
                     "scheme": "HTTP"
                   },
