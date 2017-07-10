@@ -261,6 +261,25 @@
       "displayName": "Env TAG name",
       "name": "TAG_NAME",
       "value": "dev"
+    },
+    {
+      "description": "For very simple HTTP Basic authentication, use %HTTP_BASIC% in your nginx config and provide the value here that you want in nginx config, e.g., auth_basic 'restricted';",
+      "displayName": "HTTP Basic Nginx Config Line",
+      "name": "HTTP_BASIC",
+      "value": ""
+    },
+    {
+      "description": "For very simple HTTP Basic authentication, the username of the ONE user",
+      "displayName": "HTTP Basic Username",
+      "name": "HTTP_USERNAME",
+      "value": ""
+    },
+    {
+      "description": "For very simple HTTP Basic authentication, the password of the ONE user",
+      "displayName": "HTTP Basic Username",
+      "name": "HTTP_PASSWORD",
+      "value": ""
     }
+
   ]
 }
