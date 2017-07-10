@@ -144,4 +144,8 @@ Jenkins out-of-the-box needs some additional setup.
 1. Upgrade all the plugins in Jenkins
 1. Add the `GitHub` plugin
 
+## Jenkins Manual Setup
+
+You can also create a Job in Jenkins and point your Job to the Jenkinsfile.  We recommended the `Multibranch Pipeline` job for concurrent pipelines. 
+
 
