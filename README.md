@@ -93,6 +93,11 @@ Generate a module called admin and add routing feature to it.
 
 `ng g module admin --routing`
 
+
+## Accessibility Guidance
+
+For guidance on how to make your app accessible, see our `/ACCESSIBILITY.md` docs for more info.
+
 ## Running Tests
 
 ### Unit tests
