@@ -19,7 +19,7 @@ Enhancements to base Nginx image are:
 - uses X-Forwarded-For for client IP for better logging and access control.
 - gzip enabled for better client performance
 - Optional IP filtering for access control
-- TODO: Optional HTTP Basic for access control 
+- Optional HTTP Basic for simple access control 
 
 ## Overview
 
