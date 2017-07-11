@@ -27,6 +27,6 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('span.title').textContent).toContain('MyGovBC Bootstrap Theme Demo Page');
+    expect(compiled.querySelector('span.title').textContent).toContain('Put your title here');
   }));
 });
