@@ -55,7 +55,7 @@
       "displayName": "Name",
       "description": "The name assigned to all of the frontend objects defined in this template.  You should keep this as default unless your know what your doing.",
       "required": true,
-      "value": "angular-tester"
+      "value": "angular-tester-builder"
     },
     {
       "name": "GIT_REPO_URL",

@@ -10,5 +10,8 @@ COPY google-chrome.repo /etc/yum.repos.d/google-chrome.repo
 # Add Chrome for headless testing
 RUN yum install -y google-chrome-stable
 
+# trying suid for this process
+RUN chmod u+s /usr/bin/google-chrome
+    
 # Back to user account
 USER 1001
