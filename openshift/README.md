@@ -146,6 +146,6 @@ Jenkins out-of-the-box needs some additional setup.
 
 ## Jenkins Manual Setup
 
-You can also create a Job in Jenkins and point your Job to the Jenkinsfile.  We recommended the `Multibranch Pipeline` job for concurrent pipelines. 
+You can also create a Job in Jenkins and point your Job to the Jenkinsfile.   
 
 
