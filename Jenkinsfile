@@ -26,12 +26,11 @@ node {
   }
 }
 
-node {
   stage('deploy-' + TAG_NAMES[1]) {
     input "Deploy to " + TAG_NAMES[1] + "?"
     openshiftTag destStream: IMAGESTREAM_NAME, verbose: 'true', destTag: TAG_NAMES[1], srcStream: IMAGESTREAM_NAME, srcTag: '$BUILD_ID'
   }
-}
+
 
 node {
   stage('deploy-'  + TAG_NAMES[2]) {
