@@ -11,7 +11,6 @@ def IMAGESTREAM_NAME = APP_NAME
 
 node {
 
-
   stage('build nginx runtime') {
     echo "Building: " + NGINX_BUILD_CONFIG
     openshiftBuild bldCfg: NGINX_BUILD_CONFIG, showBuildLogs: 'true'
