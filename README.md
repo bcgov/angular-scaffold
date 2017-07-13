@@ -13,7 +13,7 @@ The goal is to help you start a project fast, enable you to focus on building ac
 
 ## Node and NPM 
 
-Node 6.9.x or greater must be installed.
+Node 6.9.x or greater must be installed (an angular-cli requirement).
 
 ## Install angular/cli
 
