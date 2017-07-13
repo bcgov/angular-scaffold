@@ -142,7 +142,7 @@ Jenkins out-of-the-box needs some additional setup.
 1. First off, you'll need the admin password.  Go the Deployments -> `jenkins-pipeline-svc` -> Environment -> `JENKINS_PASSWORD`
 1. Navigate to jenkins web site by looking in your Routes in made for Jenkins
 1. Upgrade all the plugins in Jenkins
-1. Add the `GitHub` plugin
+1. Add GitHub webhook to GitHub from OpenShift Web Console->Pipelines->Edit <something>-pipeline->GitHub webhooks 
 
 ## Jenkins Manual Setup
 
