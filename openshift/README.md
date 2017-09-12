@@ -114,7 +114,7 @@ To add this image to your OpenShift Project,
 1. Paste `angular-on-nginx-deploy` into form -> Create
 1. Change the `Name` to the name of your application
 1. Change the `Image Namespace` to the project of where it's built
-1. Change the `Env TAG name` to the name of your application
+1. Change the `Env TAG name` to the name of image tag you want this environment to listen for
 1. Change the `APPLICATION_DOMAIN` to the domain name you would like
 1. This should auto trigger a build
 
