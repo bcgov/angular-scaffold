@@ -9,6 +9,6 @@ describe('base-app2 App', () => {
 
   it('should display message saying app works', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('Theming your app');
+    page.getParagraphText().then((value)=> expect(value).toEqual("Theming your app"));
   });
 });
