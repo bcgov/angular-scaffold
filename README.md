@@ -1,3 +1,5 @@
+[![Known Vulnerabilities](https://snyk.io/test/github/snyk/goof/badge.svg)](https://snyk.io/test/github/snyk/goof)
+
 # 🚀 angular-scaffold
 
 This project provides a baseline code base to help you kick start an Angular project that is based on BC Goverment themed Bootstrap styles, footers and headers.
