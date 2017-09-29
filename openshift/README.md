@@ -1,6 +1,6 @@
 # OpenShift and Jenkins Integration
-This documentation provides you with step by step instructions on how to build and deploy this 
-application in an OpenShift 3.3+ and Jenkins 2.x+ environment.  Jenkins is not required and you could 
+This documentation provides you with step by step instructions on how to build and deploy this
+application in an OpenShift 3.3+ and Jenkins 2.x+ environment.  Jenkins is not required and you could
 just use the built-in OpenShift triggers.
 
 The benefits are:
@@ -19,7 +19,7 @@ Enhancements to base Nginx image are:
 - uses X-Forwarded-For for client IP for better logging and access control.
 - gzip enabled for better client performance
 - Optional IP filtering for access control
-- Optional HTTP Basic for simple access control 
+- Optional HTTP Basic for simple access control
 
 ## Overview
 
@@ -130,7 +130,7 @@ This is your runtime image that is deployed with output of the `angular-builder`
 
 This images is based on docker hub's official nginx image, i.e., `FROM nginx:mainline`.  It will auto
 update to latest mainline for every build.  If you need to pin it to a version alter the `nginx-runtime/Dockerfile`.
-  
+
 To add this image to your OpenShift Project,
 1. Open OpenShift web console->Add to Project->Import YAML/JSON
 1. Paste `nginx-runtime.json` into form -> Create
@@ -163,7 +163,7 @@ What happens in OpenShift:
 
 Once we've got an image out of the `angular-on-nginx` builder, e.g., `<your app name>`, we
 need to setup the deployment.  We've provide a deployment template that is based on real load testing:
-1. Tuned CPU/Memory for the ngnix runtime on containers
+1. Tuned CPU/Memory for the nginx runtime on containers
 1. Auto-scaling for high work loads
 1. Tweaked readiness and liveness probes settings
 
@@ -191,7 +191,7 @@ changes deployments.  However, Jenkins provides some nice features you'll probab
 ## Jenkins Install
 
 So, you've chosen to use Jenkins!  Congrats!
-  
+
 This repo also comes with a `Jenkinsfile` to take advantage of the Pipelines feature in OpenShift and Jenkins.
 
 [Follow BCDevOps Jenkins Configuration to get started](https://github.com/BCDevOps/issues-and-solutions/wiki/Jenkins-Configuration)
@@ -200,15 +200,15 @@ Note: we've already provided the default `Jenkinsfile` tailored for this app.
 
 ## Jenkins Additional Setup
 
-Jenkins out-of-the-box needs some additional setup.  
+Jenkins out-of-the-box needs some additional setup.
 
 1. First off, you'll need the admin password.  Go the Deployments -> `jenkins-pipeline-svc` -> Environment -> `JENKINS_PASSWORD`
 1. Navigate to jenkins web site by looking in your Routes in made for Jenkins
 1. Upgrade all the plugins in Jenkins
-1. Add GitHub webhook to GitHub from OpenShift Web Console->Pipelines->Edit <something>-pipeline->GitHub webhooks 
+1. Add GitHub webhook to GitHub from OpenShift Web Console->Pipelines->Edit <something>-pipeline->GitHub webhooks
 
 ## Jenkins Manual Setup
 
-You can also create a Job in Jenkins and point your Job to the Jenkinsfile.   
+You can also create a Job in Jenkins and point your Job to the Jenkinsfile.
 
 
