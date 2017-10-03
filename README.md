@@ -2,7 +2,7 @@
 
 # 🚀 angular-scaffold
 
-This project provides a baseline code base to help you kick start an Angular project that is based on BC Goverment themed Bootstrap styles, footers and headers.
+This project provides a baseline code base to help you kick start an Angular project that is based on BC Government themed Bootstrap styles, footers and headers.
 
 
 This application has a complete development environment set up, including build, test, deploy, routing, simple components, service, and directives as examples and templates.
@@ -13,7 +13,7 @@ The goal is to help you start a project fast, enable you to focus on building ac
 
 # Development Prerequisites
 
-## Node and NPM 
+## Node and NPM
 
 Node 6.9.x or greater must be installed (an angular-cli requirement).
 
@@ -21,18 +21,18 @@ Node 6.9.x or greater must be installed (an angular-cli requirement).
 
 **Note, use `angular/cli`, do not use `angular/angular-cli`**
 
-`npm i -g @angular/cli`
+    npm i -g @angular/cli
 
-`ng` is the CLI itself 
+`ng` is the CLI itself
 
-    Verify the installation
+Verify the installation
 
-    `npm list -g @angular/cli --depth=0`
-    `ng -v`
+    npm list -g @angular/cli --depth=0
+    ng -v
 
-### Install [yarn](https://yarnpkg.com/lang/en/docs/install/#alternatives-tab).
+## Install [yarn](https://yarnpkg.com/lang/en/docs/install/#alternatives-tab).
 
-`npm i -g yarn`
+    npm i -g yarn
 
 ## Fork, Build and Deployment
 
@@ -42,7 +42,7 @@ Node 6.9.x or greater must be installed (an angular-cli requirement).
 
     Go to http://localhost:4300 to verify that the application is running
 
-    To change the default port, open `.angular-cli.json`, change the value on default.serve.port
+    To change the default port, open `.angular-cli.json`, change the value on `default.serve.port`
 1. Run `npm run build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build, like so: `ng serve --prod` to run in production mode.
 1. `npm run lint` to check styles
 
@@ -53,47 +53,48 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 ### Example: Generate a customer component
 
-`ng g c customer -d`
+    ng g c customer -d
 
 ### Example: Generate a directive: search-bpx
-`ng g d search-box -d`
+    ng g d search-box -d
 
 ### Example: Generate a service: general-data
 
-`ng g s general-data -d`
+    ng g s general-data -d
 
-Angular will give out a warning line after this command, `
-WARNING Service is generated but not provided, it must be provided to be used
-`
+Angular will give out a warning line after this command,
+
+> WARNING Service is generated but not provided, it must be provided to be used
+
 After generating a service, we must go to its owning module and add the service to the `providers` array.
 
 ### Example: Generate a service & include it in a module automatically
 
-`ng g s general-data2 -m app.module`
+    ng g s general-data2 -m app.module
 
-### Example: Generate a class, an interface and emum
+### Example: Generate a class, an interface and enum
 
-`ng g cl models/customer`
+    ng g cl models/customer
 
-`ng g i models/person`
+    ng g i models/person
 
-`ng g enum models/gender`
+    ng g enum models/gender
 
 ### Example: Generate a pipe
 
-`ng g pipe shared/init-caps`
+    ng g pipe shared/init-caps
 
 ## Generate a module
 
 Create a login directory and generate a login module in that directory
 
-`ng g module login/login.module`
+    ng g module login/login.module
 
 ## Add/Generate Routing Features
 
 Generate a module called admin and add routing feature to it.
 
-`ng g module admin --routing`
+    ng g module admin --routing
 
 
 ## Accessibility Guidance
@@ -103,8 +104,8 @@ For guidance on how to make your app accessible, see our `/ACCESSIBILITY.md` doc
 ## Running Tests
 
 ### Unit tests
-  
-  Set up via Karma, Jasmin
+
+  Set up via Karma, Jasmine
 1. `ng test` by default to watch file changes
 
 ### End-to-end tests
@@ -124,11 +125,11 @@ Before running the tests make sure you are serving the app via `ng serve`.
 
 ### Change style dialect
 
-`ng set default.styleExt css`
+    ng set default.styleExt css
 
-## Regnerate a brand new project with routing and scss options
+## Regenerate a brand new project with routing and scss options
 
-`ng new my-app --routing --style scss`
+    ng new my-app --routing --style scss
 
 # Build and Deployment
 
