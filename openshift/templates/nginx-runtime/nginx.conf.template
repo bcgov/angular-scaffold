@@ -90,7 +90,7 @@ http {
             stub_status on;
 
             # Only allow access from localhost
-            allow 172.51.0.0/16;
+            allow 127.0.0.1;
 
             # Other request should be denied
             deny all;
