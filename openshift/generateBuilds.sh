@@ -60,8 +60,7 @@ fi
 BuildConfigPostfix="_BuildConfig.json"
 CONTEXT_DIR_ROOT="."
 TEMPLATE_CONTEXT_DIR_ROOT="${CONTEXT_DIR_ROOT}/openshift/templates"
-ANGULAR_BUILDER_NAME="angular-builder"
-NGINX_RUNTIME_NAME="nginx-runtime"
+ANGULAR_BUILDER_NAME="angular-app"
 ANGULAR_ON_NGINX_NAME="angular-on-nginx"
 # ==============================================================================
 
@@ -88,22 +87,10 @@ echo "--------------------------------------------------------------------------
 ${SCRIPTS_DIR}/configureBuild.sh \
 	${GIT_URI} \
 	${GIT_REF} \
-	"${TEMPLATE_CONTEXT_DIR_ROOT}/${ANGULAR_BUILDER_NAME}/" \
+	"" \
 	"${ANGULAR_BUILDER_NAME}" \
 	"${TEMPLATE_DIR}/${ANGULAR_BUILDER_NAME}/${ANGULAR_BUILDER_NAME}.json"
 
-echo "============================================================================="
-echo
-
-echo "============================================================================="
-echo "Generating build configuration for ${NGINX_RUNTIME_NAME} ..."
-echo "-----------------------------------------------------------------------------"
-${SCRIPTS_DIR}/configureBuild.sh \
-	${GIT_URI} \
-	${GIT_REF} \
-	"${TEMPLATE_CONTEXT_DIR_ROOT}/${NGINX_RUNTIME_NAME}/" \
-	"${NGINX_RUNTIME_NAME}" \
-	"${TEMPLATE_DIR}/${NGINX_RUNTIME_NAME}/${NGINX_RUNTIME_NAME}.json"
 echo "============================================================================="
 echo
 

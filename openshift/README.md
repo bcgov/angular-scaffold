@@ -21,6 +21,8 @@ Enhancements to base Nginx image are:
 - Optional IP filtering for access control
 - Optional HTTP Basic for simple access control
 
+*Note*: angular-scaffold no longer includes an nginx Build Configuration or Dockerfile.  These have moved to https://github.com/BCDevOps/openshift-tools/tree/master/images/nginx-runtime, and for those on the BC Gov Pathfinder platform, and image is available in the global `openshift` namespace so it is no longer necessary to build your own nginx image.
+
 ## Overview
 
 This build strategy uses OpenShift's feature called [Extended Builds](https://docs.openshift.com/container-platform/3.3/dev_guide/builds.html#extended-builds).
@@ -77,6 +79,8 @@ _Full Version:_
 
 Use this script to generate the build configurations for the project.
 
+*NOTE:* This will *DELETE* all existing BuildConfigs and ImageStreams in the referenced OpenShift project.  If this is not what you want, you may process / apply the template output directly.
+
 Use:
 ```
 ./generateBuilds.sh [project_name] [git_ref] [git_uri]
@@ -105,31 +109,35 @@ Example:
 
 This section provides additional details about the templates and their associated components.  It also provides instructions on how you would manually setup and configure the builds and deployments using the templates.  If you have used the scripts from the Quick Start section then you can ignore the manual setup and configuration instructions.
 
-### Setup Angular-Builder
+### (Manually) Set up angular-app BuildConfiguration
 
-This is your builder image that compiles the angular source code.
+This is the s2i builder image that compiles the angular source code contained in your GitHub repo using OpenShift's NodeJS 6 image.
 
-This image is based on the OpenShift's community NodeJS 6 image, i.e., `FROM centos/nodejs-6-centos7`.
-We use this because the stock NodeJS 4 can't compile `angular-cli` (an ES6 issue).  Once the stock NodeJS 4 image
-is upgraded this won't be required.
+To add this image to your OpenShift Project:
 
-To add this image to your OpenShift Project,
-1. Open OpenShift web console->Add to Project->Import YAML/JSON
-1. Paste `angular-builder.json` into form -> Create
-1. Change the Git Repo URL to yours -> Create
-1. With the new build config, go to the Builds-> `angular-builder` -> Start Build
+1. Switch to the project where you wish to create the build configuration, e.g.:
+  `oc project my-angular-project-tools`
+1. Switch to the directory containing the angular app BuildConfiguration template:
+  `cd openshift/templates/angular-app`
+1. Process and import the results into the OpenShift project, providing appropriate parameter values:
 
+  `oc process -f angular-app.json -p NAME=<name> -p GIT_REPO_URL=<your_repo> | oc create -f -`
+
+  *Note:* Refer to `angular-app.json` for other available parameters.
+  
+  
 What happens in OpenShift:
-1. Fetches `Dockerfile` from `<your repo>/angular-builder/Dockerfile`
-1. Executes Dockerfile build strategy
-1. Pushes new `angular-builder` image into your project's Image Streams
+1. Fetches your angular code from <your_repo>
+1. Executes source to image build strategy, processing your code based on contents of package.json and/or .s2i/bin/assemble
+1. Pushes new image into your project's Image Streams with name of `<name>:latest`
 
-### Setup Nginx-runtime
+### OPTIONAL: Setup Nginx-runtime
 
-This is your runtime image that is deployed with output of the `angular-builder`.
+*NOTE:* This step is optional as there is a globally avaialbe nginx-runtime image in the `openshift` nanespace.  For simplicity teams may choose to use it.  If you wish to build your own `nginx-runtime` image, proceed with the steps in this section, otherwise you may skip.
 
-This images is based on docker hub's official nginx image, i.e., `FROM nginx:mainline`.  It will auto
-update to latest mainline for every build.  If you need to pin it to a version alter the `nginx-runtime/Dockerfile`.
+This is a runtime image that is deployed with output of the `angular-builder`.
+
+-update to latest mainline for every build.  If you need to pin it to a version alter the `nginx-runtime/Dockerfile`.
 
 To add this image to your OpenShift Project,
 1. Open OpenShift web console->Add to Project->Import YAML/JSON
@@ -144,8 +152,8 @@ What happens in OpenShift:
 
 ### Setup Angular-on-Nginx Builder
 
-This is the s2i builder image to glue the `angular-builder` output with the `nginx-runtime` image.  The result is a
-new image based on `nginx-runtime` but with the output of `angular-builder`.
+This is the s2i builder image that combinea the assembled output of `angular-builder` with the `nginx-runtime` image.  The result is a
+new image based that will be be referenced in a DeploymentConfig and serve up your app's static front-end resources.
 
 To add this image to your OpenShift Project,
 1. Open OpenShift web console->Add to Project->Import YAML/JSON
@@ -154,10 +162,23 @@ To add this image to your OpenShift Project,
 1. Change the `Git Source Repo URL` to yours -> Create
 1. This should auto trigger a build
 
+
+
+To add this image to your OpenShift Project:
+
+1. Switch to the project where you wish to create the build configuration, e.g.:
+  `oc project my-angular-project-tools`
+1. Switch to the directory containing the angular app BuildConfiguration template:
+  `cd openshift/templates/angular-on-nginx`
+1. Process and import the results into the OpenShift project, providing appropriate parameter values:
+
+  `oc process -f angular-on-nginx-build.json -p NAME=<name> | oc create -f -`
+
+  *Note:* Refer to `angular-app.json` for other available parameters.
+
 What happens in OpenShift:
-1. Trigger's `angular-builder` to build with your source code
 1. Copies output, i.e., `/opt/app-root/src/dist/` to `nginx-runtime` directory `tmp/app`
-1. Create to image, `<your app name>-build` to Image Stream
+1. Pushed resulting  image, `<your app name>-build` to Image Stream
 
 ### Setup "Your App" Deployment
 
