@@ -64,9 +64,6 @@
         "nodeSelector": null,
         "successfulBuildsHistoryLimit": 5,
         "failedBuildsHistoryLimit": 5
-      },
-      "status": {
-        "lastVersion": 0
       }
     },
     {
@@ -84,9 +81,6 @@
         "lookupPolicy": {
           "local": false
         }
-      },
-      "status": {
-        "dockerImageRepository": ""
       }
     }
   ],
