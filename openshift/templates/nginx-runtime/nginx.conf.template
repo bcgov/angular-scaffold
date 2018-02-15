@@ -92,9 +92,9 @@ http {
             # Only allow access from localhost
             allow 127.0.0.1;
             
-            #Allowing only 127.0.01 leads to error below:
+            #Allowing only 127.0.0.1 leads to error below:
             #[error]access forbidden by rule, client: 172.51.48.1, server: localhost, request: "GET /nginx_status HTTP/1.1", host: "172.51.49.14:8080"
-            alllow 172.51.0.0/16
+            allow 172.51.0.0/16;
 
             # Other request should be denied
             deny all;
