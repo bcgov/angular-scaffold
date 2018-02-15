@@ -7,6 +7,7 @@ def TAG_NAMES = ['dev', 'test', 'prod']
 // You shouldn't have to edit these if you're following the conventions
 def NGINX_BUILD_CONFIG = 'nginx-runtime'
 def BUILD_CONFIG = APP_NAME + '-build'
+def CHAINED_BUILD_CONFIG = APP_NAME  + '-build-angular-app-build'
 def IMAGESTREAM_NAME = APP_NAME
 
 node {
@@ -16,6 +17,10 @@ node {
     openshiftBuild bldCfg: NGINX_BUILD_CONFIG, showBuildLogs: 'true'
   }
 
+  stage('build ' + CHAINED_BUILD_CONFIG) {
+    echo "Building: " + CHAINED_BUILD_CONFIG
+    openshiftBuild bldCfg: CHAINED_BUILD_CONFIG, showBuildLogs: 'true'
+  }
   stage('build ' + BUILD_CONFIG) {
     echo "Building: " + BUILD_CONFIG
     openshiftBuild bldCfg: BUILD_CONFIG, showBuildLogs: 'true'
