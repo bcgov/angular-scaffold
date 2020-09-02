@@ -12,6 +12,7 @@ LABEL io.openshift.s2i.scripts-url=image:///usr/libexec/s2i
 
 # Copy config from source to container
 COPY nginx.conf.template /tmp/
+COPY fetch_env.js /tmp/
 
 # Fix up permissions
 RUN chmod -R 0777 /tmp /var /run /etc /mnt /usr/libexec/s2i/
