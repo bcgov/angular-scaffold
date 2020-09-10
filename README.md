@@ -135,3 +135,7 @@ Before running the tests make sure you are serving the app via `ng serve`.
 
 For dev, test, and production builds on OpenShift/Jenkins see `openshift/README.md` for detailed instructions
 on how to setup in an OpenShift environment using nginx.
+
+# Configuration
+The NGINX configuration has an endpoint that can be set to pass-through to a back-end service for configuration data to be served by the same service as the Angular SPA.
+- Set the environment variable CONFIG_ENDPOINT to an ipv4 addr of the service in order to provide configuration data to front-ends dynamically.
