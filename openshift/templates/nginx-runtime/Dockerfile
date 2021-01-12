@@ -15,7 +15,9 @@ COPY nginx.conf.template /tmp/
 COPY fetch_env.js /tmp/
 
 # Fix up permissions
-RUN chmod -R 0777 /tmp /var /run /etc /mnt /usr/libexec/s2i/
+RUN chmod -R 0777 /tmp /var /etc /mnt /usr/libexec/s2i/ && \
+    chmod 0777 /run 
+
 
 # Nginx runs on port 8080 by default
 EXPOSE 8080
